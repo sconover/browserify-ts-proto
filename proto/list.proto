@@ -1,0 +1,13 @@
+syntax = "proto3";
+package list;
+
+option java_generic_services = true;
+
+message Item {
+  string name = 1;
+}
+
+message List {
+  string name = 1;
+  repeated Item item = 2;
+}

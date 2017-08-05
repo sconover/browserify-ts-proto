@@ -1,10 +1,32 @@
-bash -c "cd nodejs && node node_modules/browserify/bin/cmd.js -d ../ts/Hello.ts -p [ tsify --noImplicitAny ] > ../web/bundle.js"
-
 bash -c "cd web && ../nodejs/node_modules/.bin/live-server --port=9090"
 
 instead of running browserify (and it exits), can use 
-watchify in dev to cause all this to happen immediately
-bash -c "cd nodejs && node node_modules/watchify/bin/cmd.js -v -d ../ts/Hello.ts -p [ tsify --noImplicitAny ] -o ../web/bundle.js"
+watchify in dev to cause all this to happen immediately:
+
+bash -c "cd nodejs && node node_modules/watchify/bin/cmd.js --require protobufjs/minimal -v -d ../ts/Hello.ts -p [ tsify --project ../ts --noImplicitAny ] -o ../web/bundle.js"
 
 combo of watchify and live-server means that everything gets bundled
 and the browser reloads on any save
+
+You can always replace watchify with browserify to do a one-off bundle.
+
+codegen ts from proto:
+
+nodejs/node_modules/protobufjs/bin/pbjs -w commonjs -t static-module --no-encode --no-decode proto/list.proto > proto-gen-ts/allproto.js && nodejs/node_modules/protobufjs/bin/pbts proto-gen-ts/allproto.js > proto-gen-ts/allproto.d.ts
+
+Debugging notes.
+
+for tsc / tsify, 
+--traceResolution
+is a must for tracking down resolution problems.
+
+
+From when I couldn't figure out why protobufjs/minimal wasn't found:
+
+node node_modules/browserify/bin/cmd.js --require protobufjs/minimal -v -d node_modules/protobufjs/minimal.d.ts ../ts/Hello.ts -p [ tsify --project ../ts --traceResolution --noImplicitAny ] -o ../web/bundle.js
+
+It's because of course browserify isn't going to eval your code to figure out
+what your runtime require's are - the dependencies just need to "be there". Thus
+the browserify --require flag.
+See http://www.jeromesteunou.net/browserify-why-and-how.html
+for more.
