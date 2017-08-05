@@ -136,7 +136,7 @@ $root.list = (function() {
          * @memberof list
          * @interface IList
          * @property {string} [name] List name
-         * @property {Array.<list.IItem>} [item] List item
+         * @property {Array.<list.IItem>} [items] List items
          */
 
         /**
@@ -147,7 +147,7 @@ $root.list = (function() {
          * @param {list.IList=} [properties] Properties to set
          */
         function List(properties) {
-            this.item = [];
+            this.items = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -163,12 +163,12 @@ $root.list = (function() {
         List.prototype.name = "";
 
         /**
-         * List item.
-         * @member {Array.<list.IItem>}item
+         * List items.
+         * @member {Array.<list.IItem>}items
          * @memberof list.List
          * @instance
          */
-        List.prototype.item = $util.emptyArray;
+        List.prototype.items = $util.emptyArray;
 
         /**
          * Creates a new List instance using the specified properties.
@@ -196,13 +196,13 @@ $root.list = (function() {
             if (message.name != null && message.hasOwnProperty("name"))
                 if (!$util.isString(message.name))
                     return "name: string expected";
-            if (message.item != null && message.hasOwnProperty("item")) {
-                if (!Array.isArray(message.item))
-                    return "item: array expected";
-                for (var i = 0; i < message.item.length; ++i) {
-                    var error = $root.list.Item.verify(message.item[i]);
+            if (message.items != null && message.hasOwnProperty("items")) {
+                if (!Array.isArray(message.items))
+                    return "items: array expected";
+                for (var i = 0; i < message.items.length; ++i) {
+                    var error = $root.list.Item.verify(message.items[i]);
                     if (error)
-                        return "item." + error;
+                        return "items." + error;
                 }
             }
             return null;
@@ -222,14 +222,14 @@ $root.list = (function() {
             var message = new $root.list.List();
             if (object.name != null)
                 message.name = String(object.name);
-            if (object.item) {
-                if (!Array.isArray(object.item))
-                    throw TypeError(".list.List.item: array expected");
-                message.item = [];
-                for (var i = 0; i < object.item.length; ++i) {
-                    if (typeof object.item[i] !== "object")
-                        throw TypeError(".list.List.item: object expected");
-                    message.item[i] = $root.list.Item.fromObject(object.item[i]);
+            if (object.items) {
+                if (!Array.isArray(object.items))
+                    throw TypeError(".list.List.items: array expected");
+                message.items = [];
+                for (var i = 0; i < object.items.length; ++i) {
+                    if (typeof object.items[i] !== "object")
+                        throw TypeError(".list.List.items: object expected");
+                    message.items[i] = $root.list.Item.fromObject(object.items[i]);
                 }
             }
             return message;
@@ -249,15 +249,15 @@ $root.list = (function() {
                 options = {};
             var object = {};
             if (options.arrays || options.defaults)
-                object.item = [];
+                object.items = [];
             if (options.defaults)
                 object.name = "";
             if (message.name != null && message.hasOwnProperty("name"))
                 object.name = message.name;
-            if (message.item && message.item.length) {
-                object.item = [];
-                for (var j = 0; j < message.item.length; ++j)
-                    object.item[j] = $root.list.Item.toObject(message.item[j], options);
+            if (message.items && message.items.length) {
+                object.items = [];
+                for (var j = 0; j < message.items.length; ++j)
+                    object.items[j] = $root.list.Item.toObject(message.items[j], options);
             }
             return object;
         };

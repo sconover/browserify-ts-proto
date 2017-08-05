@@ -64,8 +64,8 @@ export namespace list {
         /** List name */
         name?: string;
 
-        /** List item */
-        item?: list.IItem[];
+        /** List items */
+        items?: list.IItem[];
     }
 
     /** Represents a List. */
@@ -80,8 +80,8 @@ export namespace list {
         /** List name. */
         public name: string;
 
-        /** List item. */
-        public item: list.IItem[];
+        /** List items. */
+        public items: list.IItem[];
 
         /**
          * Creates a new List instance using the specified properties.

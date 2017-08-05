@@ -9,5 +9,5 @@ message Item {
 
 message List {
   string name = 1;
-  repeated Item item = 2;
+  repeated Item items = 2;
 }

@@ -6,8 +6,8 @@ class Hello {
     new Now().print()
 
     let shoppingList = list.List.create({name: "shopping"})
-    shoppingList.item.push(list.Item.create({name: "coffee"}))
-    shoppingList.item.push(list.Item.create({name: "cat food"}))
+    shoppingList.items.push(list.Item.create({name: "coffee"}))
+    shoppingList.items.push(list.Item.create({name: "cat food"}))
     
     console.log(shoppingList)
   }
