@@ -1,0 +1,1 @@
+bash -c "cd nodejs && node node_modules/browserify/bin/cmd.js -d ../ts/Hello.ts -p [ tsify --noImplicitAny ] > ../web/bundle.js"

@@ -1,0 +1,33 @@
+{
+  "name": "grpccraftadminweb",
+  "version": "0.0.1",
+  "description": "grpc-craft admin web",
+  "main": "index.js",
+  "dependencies": {
+    "mvdom": "^0.4.3",
+    "protobufjs": "^6.8.0"
+  },
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "cmdrouter": "^0.2.0",
+    "exorcist": "^0.4.0",
+    "fs-extra-plus": "^0.1.1",
+    "live-server": "^1.2.0",
+    "tsify": "^3.0.1",
+    "typescript": "^2.4.2",
+    "uglify-js": "^3.0.26"
+  },
+  "scripts": {
+    "test": "grunt nodeunit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/copypastel/grpc-craft.git"
+  },
+  "author": "grpc-craft authors",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/copypastel/grpc-craft/issues"
+  },
+  "homepage": "https://github.com/copypastel/grpc-craft#readme"
+}
