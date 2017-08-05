@@ -1,13 +1,13 @@
 /*eslint-disable block-scoped-var, no-redeclare, no-control-regex, no-prototype-builtins*/
 "use strict";
 
-var $protobuf = require("protobufjs/minimal");
+var $protobuf = require("../protobufjs/minimal.js");
 
 // Common aliases
 var $util = $protobuf.util;
 
 // Exported root namespace
-var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
+var $root = $protobuf.roots["../srcdeps/proto-gen-ts/allproto"] || ($protobuf.roots["../srcdeps/proto-gen-ts/allproto"] = {});
 
 $root.list = (function() {
 

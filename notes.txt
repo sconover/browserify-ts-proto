@@ -68,3 +68,10 @@ what your runtime require's are - the dependencies just need to "be there". Thus
 the browserify --require flag.
 See http://www.jeromesteunou.net/browserify-why-and-how.html
 for more.
+
+==============
+
+Deep discussion about typescript declaration vs (js) definition files,
+and complications when using outDir
+
+https://github.com/Microsoft/TypeScript/issues/7958
