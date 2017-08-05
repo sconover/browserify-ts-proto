@@ -1,3 +1,29 @@
+Running:
+
+brew install npm
+cd nodejs
+npm install
+
+in terminal window 1: bin/watch_for_changes_and_create_browser_bundle.sh
+in terminal window 2: bin/auto_reloading_web_server.sh
+in your browser: http://127.0.0.1:9090/hello.html
+
+To update codegen on a proto change:
+bin/update_proto_codegen.sh
+
+===========
+
+Project organization:
+
+- bin contains helpful scripts
+- nodejs contains all node-related files/dependencies
+- proto is for proto definitions
+- proto-gen-ts is typescript and js code created based on aforementioned proto definitions
+- ts is application code (that makes use of the gen'd code)
+- web is html plus the auto-compiled bundle.js containing much of the above
+
+===========
+
 bash -c "cd web && ../nodejs/node_modules/.bin/live-server --port=9090"
 
 instead of running browserify (and it exits), can use 
@@ -14,6 +40,7 @@ codegen ts from proto:
 
 nodejs/node_modules/protobufjs/bin/pbjs -w commonjs -t static-module --no-encode --no-decode proto/list.proto > proto-gen-ts/allproto.js && nodejs/node_modules/protobufjs/bin/pbts proto-gen-ts/allproto.js > proto-gen-ts/allproto.d.ts
 
+==============
 Debugging notes.
 
 for tsc / tsify, 
