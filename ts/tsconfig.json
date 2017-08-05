@@ -3,6 +3,7 @@
     "baseUrl": "./", // This must be specified if "paths" is.
     "paths": {
       "protobufjs": ["./node_modules/protobufjs"] // This mapping is relative to "baseUrl"
-    }
+    },
+    "experimentalDecorators": true
   }
 }

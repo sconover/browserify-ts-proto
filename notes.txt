@@ -11,6 +11,12 @@ in your browser: http://127.0.0.1:9090/hello.html
 To update codegen on a proto change:
 bin/update_proto_codegen.sh
 
+To run unit tests:
+bin/run_tests.sh
+
+To run only one:
+bin/run_tests.sh **/SimpleTest.js
+
 ===========
 
 Project organization:
@@ -39,6 +45,11 @@ You can always replace watchify with browserify to do a one-off bundle.
 codegen ts from proto:
 
 nodejs/node_modules/protobufjs/bin/pbjs -w commonjs -t static-module --no-encode --no-decode proto/list.proto > proto-gen-ts/allproto.js && nodejs/node_modules/protobufjs/bin/pbts proto-gen-ts/allproto.js > proto-gen-ts/allproto.d.ts
+
+mocha run (fwiw, many bothans had to die to bring us this information)
+node_modules/.bin/tsc --project . --outDir /tmp/out && find /tmp/out && node_modules/.bin/mocha --ui tdd /tmp/out/test/SimpleTest.js
+
+
 
 ==============
 Debugging notes.
