@@ -1,3 +1,10 @@
 bash -c "cd nodejs && node node_modules/browserify/bin/cmd.js -d ../ts/Hello.ts -p [ tsify --noImplicitAny ] > ../web/bundle.js"
 
 bash -c "cd web && ../nodejs/node_modules/.bin/live-server --port=9090"
+
+instead of running browserify (and it exits), can use 
+watchify in dev to cause all this to happen immediately
+bash -c "cd nodejs && node node_modules/watchify/bin/cmd.js -v -d ../ts/Hello.ts -p [ tsify --noImplicitAny ] -o ../web/bundle.js"
+
+combo of watchify and live-server means that everything gets bundled
+and the browser reloads on any save
