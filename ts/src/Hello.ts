@@ -1,4 +1,4 @@
-import { list } from "../proto-gen-ts/allproto"
+import { list } from "../../proto-gen-ts/allproto"
 import { Now } from "./Now"
 class Hello {
   run() {

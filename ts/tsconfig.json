@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./", // This must be specified if "paths" is.
     "paths": {
-      "protobufjs": ["../nodejs/node_modules/protobufjs"] // This mapping is relative to "baseUrl"
+      "protobufjs": ["./node_modules/protobufjs"] // This mapping is relative to "baseUrl"
     }
   }
 }
