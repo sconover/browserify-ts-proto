@@ -1,5 +1,7 @@
 #!/bin/bash -ex
 
+# Run mocha tests
+
 this_dir=$(dirname $0)
 test_file_pattern="**/*Test.ts"
 

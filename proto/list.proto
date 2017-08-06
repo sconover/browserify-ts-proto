@@ -1,8 +1,6 @@
 syntax = "proto3";
 package list;
 
-option java_generic_services = true;
-
 message Item {
   string name = 1;
 }

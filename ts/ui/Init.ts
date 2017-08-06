@@ -4,10 +4,19 @@ import { list } from "../srcdeps/proto-gen-ts/allproto"
 
 console.log("Init start")
 
+// Random hello-world type stuff. Check the browser console.
 new Hello().run()
 
 
-// mvdom
+// This is typical mvdom code like you'd find in the examples
+// here: https://www.npmjs.com/package/mvdom
+//
+// The code below is javascript-with-a-little-typescript.
+// Note that the model object (shoppingList) is strongly typed,
+// and we get the benefit of code completion, IDE red squigglies, etc.
+//
+// Even better would be to create an mvdom typescript definition,
+// but that's out of scope for this project.
 
 declare function require(name:string);
 let d = require("../uideps/mvdom")
