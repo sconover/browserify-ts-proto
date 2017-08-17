@@ -1,10 +1,10 @@
 import "../testdeps/mocha/mocha"
-declare function require(name:string);
-var assert = require("../testdeps/assert/assert.js")
+declare function require(name: string): any
+const assert: any = require("../testdeps/assert/assert.js")
 
 suite("foo", () => {
   test("fooTest", () => {
     console.log("in a test")
-    assert.deepEqual({x:2}, {x:2})
+    assert.deepEqual({x: 2}, {x: 2})
   })
 })

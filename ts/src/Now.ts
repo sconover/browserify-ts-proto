@@ -1,5 +1,5 @@
 export class Now {
-  print() {
+  public print(): void {
     console.log(new Date(), "something else 2")
   }
 }

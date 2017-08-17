@@ -1,0 +1,33 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "align": [true, "parameters", "statements", "arguments"],
+        "arrow-parens": true,
+        "arrow-return-shorthand": true,
+        "class-name": true,
+        "indent": [true, "spaces", 2],
+        "no-conditional-assignment": true,
+        "no-console": [false],
+        "no-trailing-whitespace": true,
+        "no-var-requires": false,
+        "object-literal-key-quotes": [true, "consistent"],
+        "object-literal-sort-keys": false,
+        "prefer-method-signature" : true,
+        "prefer-template": true,
+        "semicolon": [true, "never"],
+        "space-before-function-paren": [true, "never"],
+        "space-within-parens": false,
+        "typedef": [true,
+            "call-signature",
+            "parameter",
+            "arrow-parameter",
+            "property-declaration",
+            "variable-declaration",
+            "member-variable-declaration"]
+    },
+    "rulesDirectory": []
+}

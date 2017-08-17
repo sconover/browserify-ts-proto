@@ -1,6 +1,6 @@
 import "../testdeps/mocha/mocha"
-declare function require(name:string);
-var assert = require("../testdeps/assert/assert.js")
+declare function require(name: string): any
+const assert: any = require("../testdeps/assert/assert.js")
 
 import { list } from "../srcdeps/proto-gen-ts/allproto"
 
@@ -9,16 +9,16 @@ import { list } from "../srcdeps/proto-gen-ts/allproto"
 // since it's library code from another project.
 suite("list message", () => {
   test("to json", () => {
-    let shoppingList = list.List.create({name: "shopping"})
+    const shoppingList: list.List = list.List.create({name: "shopping"})
     shoppingList.items.push(list.Item.create({name: "coffee"}))
     shoppingList.items.push(list.Item.create({name: "cat food"}))
 
     assert.deepEqual({
       "name": "shopping",
-      "items":[
+      "items": [
         {"name": "coffee"},
-        {"name": "cat food"}
-      ]
-    }, shoppingList.toJSON())
+        {"name": "cat food"},
+      ],
+    },               shoppingList.toJSON())
   })
 })

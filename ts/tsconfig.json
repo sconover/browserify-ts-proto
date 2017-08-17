@@ -2,6 +2,7 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "strictNullChecks": true,
-    "allowJs": true
+    "allowJs": true,
+    "strict": true
   }
 }

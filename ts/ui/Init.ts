@@ -1,6 +1,10 @@
-import { MyLists } from "../src/MyLists"
 import { Hello } from "../src/Hello"
+import { MyLists } from "../src/MyLists"
 import { list } from "../srcdeps/proto-gen-ts/allproto"
+
+
+/* tslint:disable */
+// for now this is js-like code, so disable tslint
 
 console.log("Init start")
 
@@ -18,7 +22,7 @@ new Hello().run()
 // Even better would be to create an mvdom typescript definition,
 // but that's out of scope for this project.
 
-declare function require(name:string);
+declare function require(name:string): any;
 let d = require("../uideps/mvdom")
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -31,7 +35,7 @@ d.register("ShoppingView",{
               <div class="list">hi, i'm the empty list</div>
             </div>`
 	},
-					
+
 	init: function(shoppingList: list.List){
     let view = this
     let listEl = d.first(view.el, ".list")
@@ -47,7 +51,7 @@ d.register("ShoppingView",{
       li.textContent = listItem.name || ""
       ul.appendChild(li)
     }
-    
+
     listEl.appendChild(ul)
   }
 })
